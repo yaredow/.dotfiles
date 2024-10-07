@@ -12,7 +12,7 @@ return {
       statementStyle = { bold = true },
       typeStyle = { italic = true },
       transparent = false, -- Use a transparent background
-      theme = "wave", -- Choose theme style: "wave", "dragon", "lotus"
+      theme = "dragon", -- Choose theme style: "wave", "dragon", "lotus"
       background = {
         dark = "wave", -- Set dark theme variant
         light = "lotus", -- Set light theme variant
