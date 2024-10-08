@@ -8,7 +8,7 @@ return {
     -- Configure lualine to use the Kanagawa colorscheme without flickering or blinking
     lualine.setup({
       options = {
-        theme = "kanagawa", -- Set the lualine theme to 'kanagawa'
+        theme = "catppuccin", -- Set the lualine theme to 'kanagawa'
         section_separators = "", -- Remove section separators
         component_separators = "", -- Remove component separators
       },
