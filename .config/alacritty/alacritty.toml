@@ -13,10 +13,10 @@ opacity = 0.85
 decorations = "Buttonless"
 
 [font]
-normal.family = "CaskaydiaCove Nerd Font Mono"
+normal.family = "JetBrainsMono Nerd Font"
 
 #regular
-size = 11.5
+size = 11.0
 
 #for video
 # size = 35.0
