@@ -25,6 +25,7 @@ alias v=nvim
 alias y=yazi
 alias nr="npm run"
 alias nrd="npm run dev"
+alias brd="bun run dev"
 alias nrpg="npm run prisma:generate"
 alias nrpp="npm run prisma:push"
 alias nrps="npm run prisma:studio"
@@ -48,3 +49,10 @@ PATH=~/.console-ninja/.bin:$PATH
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 
+
+# bun completions
+[ -s "/home/yared/.bun/_bun" ] && source "/home/yared/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
