@@ -1,5 +1,5 @@
-import = [
-    "~/.config/alacritty/themes/themes/kanagawa_wave.toml"
+general.import = [
+    "~/.config/alacritty/themes/themes/themes/catppuccin_mocha.toml"
 ]
 
 [ env ]
@@ -10,10 +10,11 @@ padding.x = 10
 padding.y = 10
 opacity = 0.85
 
-decorations = "Buttonless"
+decorations = "None"
+startup_mode = "Fullscreen"
 
 [font]
-normal.family = "JetBrainsMono Nerd Font"
+normal.family = "Cascadia Code"
 
 #regular
 size = 11.0
