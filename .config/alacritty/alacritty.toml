@@ -14,10 +14,10 @@ decorations = "None"
 startup_mode = "Fullscreen"
 
 [font]
-normal.family = "Cascadia Code"
+normal.family = "JetBrains Mono"
 
 #regular
-size = 11.0
+size = 10.5
 
 #for video
 # size = 35.0
