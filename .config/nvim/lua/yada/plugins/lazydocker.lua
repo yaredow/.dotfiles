@@ -1,21 +1,32 @@
 return {
-	"crnvl96/lazydocker.nvim",
-	event = "VeryLazy",
-	dependencies = {
-		"MunifTanjim/nui.nvim",
-	},
+	"mgierada/lazydocker.nvim",
+	dependencies = { "akinsho/toggleterm.nvim" },
 	config = function()
-		-- Call the setup function explicitly
-		require("lazydocker").setup({
-			-- Add any necessary options here
+		require("toggleterm").setup({
+			-- Optional configuration for toggleterm can go here
 		})
 
-		-- Set up key mapping for LazyDocker
-		vim.keymap.set(
-			"n",
-			"<leader>k",
-			"<cmd>LazyDocker<CR>",
-			{ desc = "Toggle LazyDocker", noremap = true, silent = true }
-		)
+		-- Define a Lazydocker terminal toggle function
+		local Terminal = require("toggleterm.terminal").Terminal
+		local lazydocker = Terminal:new({
+			cmd = "lazydocker",
+			direction = "float",
+			close_on_exit = true,
+			hidden = true,
+		})
+
+		function _lazydocker_toggle()
+			lazydocker:toggle()
+		end
 	end,
+	event = "BufRead",
+	keys = {
+		{
+			"<leader>ld",
+			function()
+				_lazydocker_toggle()
+			end,
+			desc = "Open Lazydocker floating window",
+		},
+	},
 }
