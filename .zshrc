@@ -21,6 +21,9 @@ plugins=(
 # Load Oh My Zsh.
 source $ZSH/oh-my-zsh.sh
 
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
+
 # Prompt configuration.
 # Highlight git branch in prompt.
 autoload -Uz vcs_info
@@ -30,6 +33,7 @@ PROMPT='%F{cyan}%n@%m%f %1~ $(vcs_info_msg_0_) %# '
 
 # Syntax highlighting and autosuggestions.
 source ${(q-)ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 source ${(q-)ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Aliases for convenience.
@@ -88,3 +92,10 @@ zmodload zsh/complist
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# bun completions
+[ -s "/home/yada/.bun/_bun" ] && source "/home/yada/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
