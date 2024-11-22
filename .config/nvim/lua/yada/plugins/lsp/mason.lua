@@ -31,6 +31,7 @@ return {
 				"cssls",
 				"tailwindcss",
 				"svelte",
+				"pyright",
 				"lua_ls",
 				"graphql",
 				"emmet_ls",

@@ -4,6 +4,7 @@ return {
 	build = ":TSUpdate",
 	dependencies = {
 		"windwp/nvim-ts-autotag",
+		"EmranMR/tree-sitter-blade",
 	},
 	config = function()
 		-- import nvim-treesitter plugin
@@ -22,12 +23,14 @@ return {
 			},
 			-- ensure these language parsers are installed
 			ensure_installed = {
+				"blade",
 				"json",
 				"javascript",
 				"typescript",
 				"tsx",
 				"yaml",
 				"html",
+				"php",
 				"css",
 				"prisma",
 				"markdown",
