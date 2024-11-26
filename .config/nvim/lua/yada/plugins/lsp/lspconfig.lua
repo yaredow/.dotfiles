@@ -96,6 +96,7 @@ return {
 					capabilities = capabilities,
 					filetypes = {
 						"html",
+						"htmldjango", -- Add htmldjango here
 						"typescriptreact",
 						"javascriptreact",
 						"css",
@@ -104,9 +105,15 @@ return {
 						"less",
 						"svelte",
 					},
+					init_options = {
+						html = {
+							options = {
+								["bem.enabled"] = true,
+							},
+						},
+					},
 				})
-			end,
-			-- Lua configuration
+			end, -- Lua configuration
 			["lua_ls"] = function()
 				lspconfig["lua_ls"].setup({
 					capabilities = capabilities,
@@ -136,12 +143,6 @@ return {
 					filetypes = { "htmldjango", "html" },
 				})
 			end,
-		})
-	end,
-	["html"] = function()
-		lspconfig.html.setup({
-			capabilities = capabilities,
-			filetypes = { "html", "htmldjango" }, -- Include 'htmldjango' here
 		})
 	end,
 }
