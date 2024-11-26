@@ -133,9 +133,15 @@ return {
 			["djlint"] = function()
 				lspconfig["djlint"].setup({
 					capabilities = capabilities,
-					filetypes = { "htmldjango" },
+					filetypes = { "htmldjango", "html" },
 				})
 			end,
+		})
+	end,
+	["html"] = function()
+		lspconfig.html.setup({
+			capabilities = capabilities,
+			filetypes = { "html", "htmldjango" }, -- Include 'htmldjango' here
 		})
 	end,
 }

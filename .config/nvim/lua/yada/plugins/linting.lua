@@ -7,12 +7,9 @@ return {
 		local eslint = lint.linters.eslint_d
 
 		lint.linters_by_ft = {
-			javascript = { "eslint_d", "eslint" },
-			typescript = { "eslint_d" },
-			javascriptreact = { "eslint_d" },
-			typescriptreact = { "eslint_d" },
-			svelte = { "eslint_d" },
-			python = { "pylint" },
+			javascript = { "eslint" },
+			typescript = { "eslint" },
+			javascriptreact = { "eslint" },
 		}
 
 		eslint.args = {
