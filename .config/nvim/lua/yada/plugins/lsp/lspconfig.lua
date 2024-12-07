@@ -136,13 +136,6 @@ return {
 					filetypes = { "python" },
 				})
 			end,
-			-- DjLint configuration
-			["djlint"] = function()
-				lspconfig["djlint"].setup({
-					capabilities = capabilities,
-					filetypes = { "htmldjango", "html" },
-				})
-			end,
 		})
 	end,
 }

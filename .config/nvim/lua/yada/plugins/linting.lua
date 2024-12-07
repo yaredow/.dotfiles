@@ -10,7 +10,6 @@ return {
 			javascript = { "eslint" },
 			typescript = { "eslint" },
 			javascriptreact = { "eslint" },
-			django = { "djlint" },
 		}
 
 		eslint.args = {
