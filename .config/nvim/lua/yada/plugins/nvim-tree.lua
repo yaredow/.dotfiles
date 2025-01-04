@@ -1,69 +1,74 @@
 return {
-	"nvim-tree/nvim-tree.lua",
-	dependencies = "nvim-tree/nvim-web-devicons",
+	"nvim-neo-tree/neo-tree.nvim",
+	branch = "v2.x", -- Use stable v2.x branch
+	dependencies = {
+		"nvim-lua/plenary.nvim", -- Required dependency
+		"nvim-tree/nvim-web-devicons", -- For icons
+	},
 	config = function()
-		local nvimtree = require("nvim-tree")
+		local neotree = require("neo-tree")
 
-		-- recommended settings from nvim-tree documentation
-		vim.g.loaded_netrw = 1
-		vim.g.loaded_netrwPlugin = 1
+		-- Setup NeoTree
+		neotree.setup({
+			-- General settings
+			close_if_last_window = true, -- Close NeoTree if it's the last window
+			popup_border_style = "rounded", -- Border style for popups
 
-		nvimtree.setup({
-			view = {
-				width = 35,
-				relativenumber = true,
-			},
-			-- change folder arrow icons
-			renderer = {
-				indent_markers = {
-					enable = true,
+			-- File system settings
+			filesystem = {
+				filtered_items = {
+					visible = true, -- Show hidden files
+					hide_dotfiles = false, -- Don't hide dotfiles
 				},
-				icons = {
-					glyphs = {
-						folder = {
-							arrow_closed = "", -- arrow when folder is closed
-							arrow_open = "", -- arrow when folder is open
-						},
+				follow_current_file = true, -- Follow the current file
+			},
+
+			-- Git status symbols
+			default_component_configs = {
+				git_status = {
+					symbols = {
+						added = "✚ ",
+						modified = "✹ ",
+						deleted = "✖ ",
+						renamed = "➔ ",
+						untracked = " ",
 					},
 				},
 			},
-			-- disable window_picker for
-			-- explorer to work well with
-			-- window splits
-			actions = {
-				open_file = {
-					window_picker = {
-						enable = false,
-					},
+
+			-- Key mappings
+			window = {
+				width = 30, -- Width of the NeoTree window
+				mappings = {
+					["o"] = "open", -- Open file/folder on "o"
+					["<CR>"] = "open", -- Open file/folder on Enter
+					["<C-x>"] = "split_with_window_picker", -- Split in a new window
+					["<C-v>"] = "vsplit_with_window_picker", -- Vertical split in a new window
 				},
-			},
-			filters = {
-				custom = { ".DS_Store" },
-			},
-			git = {
-				ignore = false,
 			},
 		})
 
-		-- set keymaps
-		local keymap = vim.keymap -- for conciseness
+		-- Set keymaps for NeoTree
+		local keymap = vim.keymap -- For conciseness
 
-		keymap.set("n", "<leader>ee", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file explorer" }) -- toggle file explorer
+		-- Toggle NeoTree
+		keymap.set("n", "<leader>ee", "<cmd>Neotree toggle<CR>", { desc = "Toggle file explorer" })
 
-		vim.keymap.set(
-			"n",
-			"<leader>e",
-			":NvimTreeFocus<CR>",
-			{ noremap = true, silent = true, desc = "Focus Nvim-tree filesystem" }
-		)
-
+		-- Focus NeoTree
 		keymap.set(
 			"n",
-			"<leader>ef",
-			"<cmd>NvimTreeFindFileToggle<CR>",
-			{ desc = "Toggle file explorer on current file" }
-		) -- toggle file explorer on current file
-		keymap.set("n", "<leader>ec", "<cmd>NvimTreeCollapse<CR>", { desc = "Collapse file explorer" }) -- collapse file explorer
-		keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>", { desc = "Refresh file explorer" }) -- refresh file explorer
+			"<leader>e",
+			":Neotree focus<CR>",
+			{ noremap = true, silent = true, desc = "Focus NeoTree filesystem" }
+		)
+
+		-- Toggle file explorer on current file
+		keymap.set("n", "<leader>ef", "<cmd>Neotree toggle<CR>", { desc = "Toggle file explorer on current file" })
+
+		-- Collapse NeoTree
+		keymap.set("n", "<leader>ec", "<cmd>Neotree collapse<CR>", { desc = "Collapse NeoTree file explorer" })
+
+		-- Refresh NeoTree
+		keymap.set("n", "<leader>er", "<cmd>Neotree refresh<CR>", { desc = "Refresh NeoTree file explorer" })
 	end,
 }
