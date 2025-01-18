@@ -11,7 +11,8 @@ return {
 		local treesitter = require("nvim-treesitter.configs")
 
 		-- configure treesitter
-		treesitter.setup({ -- enable syntax highlighting
+		treesitter.setup({
+			-- enable syntax highlighting
 			highlight = {
 				enable = true,
 			},
@@ -45,10 +46,11 @@ return {
 				"vimdoc",
 				"c",
 			},
-			highlight = {
-				enable = true,
-				additional_vim_regex_highlighting = true,
-			},
+			-- add missing required fields
+			modules = {},
+			sync_install = false,
+			ignore_install = {},
+			auto_install = true,
 			incremental_selection = {
 				enable = true,
 				keymaps = {
