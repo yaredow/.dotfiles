@@ -4,15 +4,13 @@ return {
 	build = ":TSUpdate",
 	dependencies = {
 		"windwp/nvim-ts-autotag",
-		"EmranMR/tree-sitter-blade",
 	},
 	config = function()
 		-- import nvim-treesitter plugin
 		local treesitter = require("nvim-treesitter.configs")
 
 		-- configure treesitter
-		treesitter.setup({
-			-- enable syntax highlighting
+		treesitter.setup({ -- enable syntax highlighting
 			highlight = {
 				enable = true,
 			},
@@ -30,7 +28,6 @@ return {
 				"tsx",
 				"yaml",
 				"html",
-				"php",
 				"css",
 				"prisma",
 				"markdown",
@@ -46,11 +43,6 @@ return {
 				"vimdoc",
 				"c",
 			},
-			-- add missing required fields
-			modules = {},
-			sync_install = false,
-			ignore_install = {},
-			auto_install = true,
 			incremental_selection = {
 				enable = true,
 				keymaps = {
