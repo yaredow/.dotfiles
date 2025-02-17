@@ -15,7 +15,15 @@
   {
     "context": "Editor",
     "bindings": {
-      "ctrl-u": "editor::MovePageUp"
+      "ctrl-j": "menu::SelectNext",
+      "ctrl-k": "menu::SelectPrev"
+    }
+  },
+  {
+    "context": "Editor && (showing_code_actions || showing_completions)",
+    "bindings": {
+      "ctrl-j": "editor::ContextMenuNext",
+      "ctrl-k": "editor::ContextMenuPrev"
     }
   },
   {
