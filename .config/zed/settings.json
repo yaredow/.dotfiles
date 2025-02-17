@@ -1,0 +1,44 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "features": {
+    "edit_prediction_provider": "zed"
+  },
+  "assistant": {
+    "default_model": {
+      "provider": "copilot_chat",
+      "model": "gpt-4o"
+    },
+    "version": "2"
+  },
+  "icon_theme": "Material Icon Theme",
+  "vim_mode": true,
+  "ui_font_size": 16,
+  "ui_zoom_factor": 2.0,
+  "buffer_font_size": 15,
+  "ui_font_family": "JetBrains Mono",
+  "theme": {
+    "mode": "system",
+    "light": "One Light",
+    "dark": "Moonlight"
+  },
+  "project_panel": {
+    "dock": "left",
+    "auto_fold_dirs": false
+  },
+  "keybindings": [
+    {
+      "context": "Editor && vim_mode == insert && !menu",
+      "bindings": {
+        "j k": ["vim::SwitchMode", "Normal"]
+      }
+    }
+  ],
+  "soft_wrap": "editor_width"
+}
