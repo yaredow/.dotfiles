@@ -20,6 +20,52 @@
     }
   },
   {
+    "context": "Editor && edit_prediction",
+    "bindings": {
+      "alt-shift": "editor::AcceptEditPrediction"
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "tab": "editor::Tab"
+    }
+  },
+  {
+    "context": "Editor && showing_completions",
+    "bindings": {
+      "tab": "editor::ComposeCompletion"
+    }
+  },
+  {
+    "context": "(VimControl && !menu) || vim_mode == replace || vim_mode == waiting",
+    "bindings": {
+      "tab": "vim::Tab"
+    }
+  },
+  {
+    "context": "vim_mode == literal",
+    "bindings": {
+      "tab": ["vim::Literal", ["tab", "\u0009"]]
+    }
+  },
+  {
+    "context": "Editor && edit_prediction",
+    "bindings": {
+      "tab": "editor::AcceptEditPrediction",
+      // Optional: This makes the default `alt-l` binding do nothing.
+      "alt-tab": null
+    }
+  },
+  {
+    "context": "Editor && edit_prediction_conflict",
+    "bindings": {
+      "alt-l": "editor::AcceptEditPrediction",
+      // Optional: This makes the default `alt-l` binding do nothing.
+      "alt-tab": null
+    }
+  },
+  {
     "context": "Editor && (showing_code_actions || showing_completions)",
     "bindings": {
       "ctrl-j": "editor::ContextMenuNext",
