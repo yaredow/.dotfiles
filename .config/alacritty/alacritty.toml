@@ -6,18 +6,17 @@ general.import = [
 TERM = "xterm-256color"
 
 [window]
-padding.x = 10
-padding.y = 10
-opacity = 0.85
+padding.x = 7
+padding.y = 7
 
 decorations = "None"
 startup_mode = "Fullscreen"
 
 [font]
-normal.family = "JetBrains Mono"
+normal.family = "Monolisa"
 
 #regular
-size = 10.5
+size = 11.5
 
 #for video
 # size = 35.0
