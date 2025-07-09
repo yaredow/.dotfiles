@@ -1,31 +1,40 @@
-#!/bin/bash
-#   ___ _____ ___ _     _____   ____  _             _    
-#  / _ \_   _|_ _| |   | ____| / ___|| |_ __ _ _ __| |_  
-# | | | || |  | || |   |  _|   \___ \| __/ _` | '__| __| 
-# | |_| || |  | || |___| |___   ___) | || (_| | |  | |_  
-#  \__\_\|_| |___|_____|_____| |____/ \__\__,_|_|   \__| 
-#                                                        
-#  
-# by Stephan Raabe (2023) 
-# ----------------------------------------------------- 
+#!/usr/bin/env bash
 
-# My screen resolution
-# xrandr --rate 120
+COLORSCHEME=doom-one
 
-# For Virtual Machine 
-# xrandr --output Virtual-1 --mode 1920x1080
+### AUTOSTART PROGRAMS ###
 
-# Keyboard layout
-setxkbmap us
+variety &
 
-# Load picom
-# picom &
+if systemd-detect-virt --quiet; then
+  lxsession &
+  sleep 1
+  killall picom
+  xrandr -s 2880x1800 &
+else
+  lxsession &
+fi
 
-# Load power manager
-xfce4-power-manager &
+dunst -conf "$HOME"/.config/dunst/"$COLORSCHEME" &
+nm-applet &
+systemctl --user start mpd &
+"$HOME"/.screenlayout/layout.sh &
+sleep 1
+conky -c "$HOME"/.config/conky/qtile/01/"$COLORSCHEME".conf || echo "Couldn't start conky."
+sleep 1
 
-# Load notification service
-dunst &
+yes | /usr/bin/emacs --daemon &
 
-# Setup Wallpaper and update colors
-~/.config/qtile/scripts/wallpaper.sh init
+### UNCOMMENT ONLY ONE OF THE FOLLOWING THREE OPTIONS! ###
+# 1. Uncomment to set wallpaper with 'waypaper'
+waypaper --restore &
+
+# 2. Uncomment to set wallpaper with 'dm-setbg' from dmscripts
+# xargs xwallpaper --stretch < ~/.cache/wall &
+
+# 3. Uncomment to set a random wallpaper on login
+# find /usr/share/backgrounds/dtos-backgrounds/ -type f | shuf -n 1 | xargs xwallpaper --stretch &
+
+if [ ! -d "$HOME"/.cache/betterlockscreen/ ]; then
+  betterlockscreen -u /usr/share/backgrounds/dtos-backgrounds/0277.jpg &
+fi

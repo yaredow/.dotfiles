@@ -8,7 +8,7 @@
 
 configuration {
 	/*---------- General setting ----------*/
-	modi: "combi,run,filebrowser,window";
+	modi: "drun,run,filebrowser,window";
 	case-sensitive: false;
 	cycle: true;
 	filter: "";
@@ -83,7 +83,7 @@ configuration {
 
 	/*---------- Misc setting ----------*/
 	terminal: "rofi-sensible-terminal";
-	font: "MesloLGS Nerd Font Mono 16";
+	font: "Mono 12";
 	sort: false;
 	threads: 0;
 	click-to-exit: true;

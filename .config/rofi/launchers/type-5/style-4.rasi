@@ -21,7 +21,7 @@ configuration {
 
 /*****----- Global Properties -----*****/
 * {
-    font:                        "MesloLGS Nerd Font Mono 20";
+    font:                        "Iosevka Nerd Font 10";
 }
 
 /*****----- Main Window -----*****/
@@ -31,7 +31,7 @@ window {
     location:                    center;
     anchor:                      center;
     fullscreen:                  false;
-    width:                       1200px;
+    width:                       800px;
     x-offset:                    0px;
     y-offset:                    0px;
 
