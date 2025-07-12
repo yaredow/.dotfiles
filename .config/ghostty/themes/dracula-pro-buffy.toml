@@ -1,0 +1,75 @@
+[colors.primary]
+background = "#2A212C"           # &Background
+foreground = "#F8F8F2"           # &Foreground
+dim_foreground = "#9f70a9"       # &AnsiColor8
+bright_foreground = "#F8F8F2"    # &AnsiColor7
+
+[colors.cursor]
+text = "#2A212C"                 # &Background
+cursor = "#E67070"               # &FunctionalRed
+
+[colors.vi_mode_cursor]
+text = "#2A212C"                 # &Background
+cursor = "#75ECE0"               # &FunctionalCyan
+
+[colors.search.matches]
+foreground = "#2A212C"           # &Background
+background = "#9f70a9"           # &AnsiColor8
+
+[colors.search.focused_match]
+foreground = "#2A212C"           # &Background
+background = "#7DE972"           # &FunctionalGreen
+
+[colors.footer_bar]
+foreground = "#2A212C"           # &Background
+background = "#9f70a9"           # &AnsiColor8
+
+[colors.hints.start]
+foreground = "#2A212C"           # &Background
+background = "#FFCA80"           # &Orange
+
+[colors.hints.end]
+foreground = "#2A212C"           # &Background
+background = "#9f70a9"           # &AnsiColor8
+
+[colors.selection]
+text = "#2A212C"                 # &Background
+background = "#E67070"           # &FunctionalRed
+
+[colors.normal]
+black = "#21222C"                # &AnsiColor0
+red = "#FF9580"                  # &AnsiColor1
+green = "#8AFF80"                # &AnsiColor2
+yellow = "#FFFF80"               # &AnsiColor3
+blue = "#9580FF"                 # &AnsiColor4
+magenta = "#FF80BF"              # &AnsiColor5
+cyan = "#80FFEA"                 # &AnsiColor6
+white = "#F8F8F2"                # &AnsiColor7
+
+[colors.bright]
+black = "#9f70a9"                # &AnsiColor8
+red = "#FFBFB3"                  # &AnsiColor9
+green = "#B9FFB3"                # &AnsiColor10
+yellow = "#FFFFB3"               # &AnsiColor11
+blue = "#BFB3FF"                 # &AnsiColor12
+magenta = "#FFB3D9"              # &AnsiColor13
+cyan = "#B3FFF2"                 # &AnsiColor14
+white = "#FFFFFF"                # &AnsiColor15
+
+[colors.dim]
+black = "#21222C"                # &AnsiColor0
+red = "#FF9580"                  # &AnsiColor1
+green = "#8AFF80"                # &AnsiColor2
+yellow = "#FFFF80"               # &AnsiColor3
+blue = "#9580FF"                 # &AnsiColor4
+magenta = "#FF80BF"              # &AnsiColor5
+cyan = "#80FFEA"                 # &AnsiColor6
+white = "#F8F8F2"                # &AnsiColor7
+
+[[colors.indexed_colors]]
+index = 16
+color = "#FFCA80"                # &Orange
+
+[[colors.indexed_colors]]
+index = 17
+color = "#E67070"                # &FunctionalRed
