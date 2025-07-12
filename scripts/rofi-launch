@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+# Optimized script to launch Rofi with adi1090x type-2/style-1 theme
+export DISPLAY=${DISPLAY:-:0}
+
+ROFI_DIR="$HOME/.config/rofi/launchers/type-2"
+THEME="style-2"
+
+rofi -show drun -theme "${ROFI_DIR}/${THEME}.rasi"
