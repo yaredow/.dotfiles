@@ -1,174 +1,234 @@
-@import "themes/tokyonight.css";
-/* Change this import to switch themes */
+/* =============================================================================
+ *
+ * Waybar configuration
+ *
+ * Configuration reference: https://github.com/Alexays/Waybar/wiki/Configuration
+ *
+ * =========================================================================== */
 
+/*
+Polar Night (dark grays)
+nord0  #2e3440 - (46,52,64)
+nord1  #3b4252 - (59,66,82)
+nord2  #434c5e - (67,76,94)
+nord3  #4c566a - (76,86,106)
+Snow Storm (bright grays)
+nord4  #d8dee9 - (216,222,233)
+nord5  #e5e9f0 - (229,233,240)
+nord6  #eceff4 - (236,239,244)
+Frost (bluish colors)
+nord7  #8fbcbb - (143,188,187)
+nord8  #88c0d0 - (136,192,208)
+nord9  #81a1c1 - (129,161,193)
+nord10 #5e81ac - (94,129,172)
+Aurora (bright accent colors)
+nord11 #bf616a - (191,97,106)
+nord12 #d08770 - (208,135,112)
+nord13 #ebcb8b - (235,203,139)
+nord14 #a3be8c - (163,190,140)
+nord15 #b48ead - (180,142,173)
+*/
+
+/* -----------------------------------------------------------------------------
+ * Base styles
+ * -------------------------------------------------------------------------- */
+
+/* Reset all styles */
 * {
-  font-family: "JetBrainsMono Nerd Font";
-  font-size: 11px;
-  font-weight: normal;
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
 }
 
-window#waybar {
-  /* background-color: transparent; */
-  background-color: @background;
-  color: @foreground;
+/* The whole bar */
+#waybar {
+    color: #eceff4;
+    background-color: rgba(46,52,64,0.6);
+    border-radius: 5px;
+    font-family:JetBrainsMonoNerdFont;
+    font-size: 13px;
+   }
+
+*:hover {
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+.modules-left > widget:first-child > * {
+    margin-left: 15px;
+}
+.modules-right > widget:last-child > * {
+    margin-right: 15px;
+}
+tooltip label {
+    font-family:JetBrainsMonoNerdFont;
+    font-size: 13px;
 }
 
-/* === Shared module styles === */
-#workspaces,
-#scratchpad,
-#disk,
-#cpu,
-#memory,
-#temperature,
+/* -----------------------------------------------------------------------------
+ * Module styles
+ * -------------------------------------------------------------------------- */
+
+/* Common module settings*/
+#window,
 #network,
-#pulseaudio,
-#backlight,
+#privacy,
+#custom-updates,
+#custom-pacman,
+#custom-keyboard-layout,
+#cpu,
+#temperature,
+#disk,
+#memory,
+#wireplumber,
 #battery,
-#clock {
-  padding: 2px 4px;
-  margin: 3px;
-  margin-top: 2;
-  margin-bottom: 2;
-  border-radius: 6px;
-  background: @background-alt;
+#idle_inhibitor,
+#backlight,
+#bluetooth,
+#tray,
+#clock,
+#custom-settings,
+#custom-power,
+#custom-reboot,
+#custom-reboot-uefi,
+#custom-log-off,
+#custom-suspend,
+#custom-lock {
+    background: rgba(129,161,193,0.4);
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.8);
+    padding:.1rem 1rem;
+    margin: 1px 1px;
 }
 
-/* === Workspaces === */
-#workspaces {
-  padding: 0;
-  margin: 0;
-  margin-right: 5px;
-  border: 2px solid @foreground-alt;
+#window:hover,
+#network:hover,
+#privacy:hover,
+#custom-updates:hover,
+#custom-pacman:hover,
+#custom-keyboard-layout:hover,
+#cpu:hover,
+#temperature:hover,
+#disk:hover,
+#memory:hover,
+#wireplumber:hover,
+#battery:hover,
+#idle_inhibitor:hover,
+#backlight:hover,
+#bluetooth:hover,
+#tray:hover,
+#tray .active:hover,
+#clock:hover,
+#custom-settings:hover,
+#custom-power:hover,
+#custom-reboot:hover,
+#custom-reboot-uefi:hover,
+#custom-log-off:hover,
+#custom-suspend:hover,
+#custom-lock:hover {
+    background: rgba(129,161,193,0.8);
+    box-shadow: 0 0 10px rgba(0,0,0,0.8);
 }
 
-#workspaces button,
-#workspaces button:hover,
-#workspaces button.visible,
-#workspaces button.visible:hover,
-#workspaces button.active,
-#workspaces button.active:hover,
-#workspaces button.urgent {
-  padding: 0 6px;
-}
-
-#workspaces button.visible {
-  background: @foreground;
-  color: @background;
-  border-radius: 2px;
-}
-
-#workspaces button:hover,
-#workspaces button.visible:hover {
-  background: @background-alt;
-  color: @foreground;
-}
-
-#workspaces button.urgent {
-  background: @critical;
-}
-
-/* === Module Specific Colors === */
-#scratchpad {
-  color: @scratchpad;
-  border: 2px solid @scratchpad;
-}
-
-#disk {
-  color: @disk;
-  border: 2px solid @disk;
-}
-
-#cpu {
-  color: @cpu;
-  border: 2px solid @cpu;
-}
-
-#memory {
-  color: @memory;
-  border: 2px solid @memory;
-}
-
-#temperature {
-  color: @temperature;
-  border: 2px solid @temperature;
-}
-
+#custom-launcher,
+#window,
 #network {
-  color: @network;
-  border: 2px solid @network;
+    background: transparent;
+    box-shadow: none;
 }
 
-#pulseaudio {
-  color: @pulseaudio;
-  border: 2px solid @pulseaudio;
+#custom-launcher,
+#custom-power {
+    padding-right: 1.1rem;
 }
 
-#backlight {
-  color: @backlight;
-  border: 2px solid @backlight;
+#workspaces:hover {
+    background: none;
 }
 
-#battery {
-  color: @battery;
-  border: 2px solid @battery;
+#workspaces button {
+    border-radius: 5px;
+    padding: 0px 6px;
+    margin-right: 2px;
+    margin-left: 2px;
 }
 
-#clock {
-  color: @clock;
-  border: 2px solid @clock;
+#workspaces button.focused {
+    border: 0.9px solid #eceff4;
 }
 
-/* === Conditional Styling === */
-#network.connected {
-  color: @good;
-  border: 2px solid @good;
+#cpu:hover,
+#custom-settings:hover {
+    background-image: url('chevron-right.svg');
+    background-repeat: no-repeat;
+    background-position: right center;
 }
 
-#network.disconnected {
-  color: @critical;
-  border: 2px solid @critical;
+#window {
+    border-style: hidden;
+    margin-top: 1px;
 }
 
+#privacy {
+    color: #ebcb8b;
+    background: rgba(235,203,139,0.1);
+}
+
+#privacy:hover {
+    color: #ebcb8b;
+    background: rgba(235,203,139,0.3);
+}
+
+#wireplumber.muted,
+#bluetooth.off,
+#idle_inhibitor.deactivated {
+    color: #88c0d0;
+}
+
+#cpu.warning,
+#memory.warning {
+    color: #d08770;
+    background: rgba(208,135,112,0.1);
+}
+
+#cpu.warning:hover,
+#memory.warning:hover {
+    background: rgba(208,135,112,0.3);
+}
+
+#workspaces button.urgent,
+#network.disabled,
+#network.disconnected,
+#cpu.critical,
+#memory.critical,
 #temperature.critical {
-  color: @critical;
-  border: 2px solid @critical;
+    color: #bf616a;
+    background: rgba(191,97,106,0.1);
 }
 
-#pulseaudio.muted {
-  color: @critical;
-  border: 2px solid @critical;
+#workspaces button.urgent:hover,
+#network.disabled:hover,
+#network.disconnected:hover,
+#cpu.critical:hover,
+#memory.critical:hover,
+#temperature.critical {
+    background: rgba(191,97,106,0.3);
 }
 
-#battery.charging {
-  color: @good;
-  border: 2px solid @good;
+@keyframes blink {
+    to {
+        color: #4c566a;
+        background-color: #eceff4;
+    }
 }
 
-#battery.warning {
-  color: @warning;
-  border: 2px solid @warning;
-}
-
-/* === Battery Critical Animation === */
-@keyframes blink-critical {
-  0% {
-    border-color: @critical;
-    color: @critical;
-  }
-
-  50% {
-    border-color: transparent;
-    color: @background;
-  }
-
-  100% {
-    border-color: @critical;
-    color: @critical;
-  }
-}
-
-#battery.critical {
-  animation: blink-critical 1s infinite;
-  border: 2px solid @critical;
-  color: @critical;
+#battery.critical:not(.charging) {
+    background: #bf616a;
+    color: #eceff4;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
 }
