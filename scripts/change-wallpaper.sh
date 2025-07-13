@@ -1,12 +1,20 @@
 #!/bin/bash
-WALLPAPER_DIR="$HOME/Pictures/wallpaper"
-INTERVAL=300 # Time in seconds (e.g., 300 = 5 minutes)
+
+wallpaper_dir="$HOME/Pictures/wallpaper"
 
 while true; do
-	# Select a random image from the wallpaper directory
-	PIC=$(find "$WALLPAPER_DIR" -type f \( -name "*.jpg" -o -name "*.png" \) | shuf -n 1)
-	# Set the wallpaper with feh
-	DISPLAY=:0 feh --no-fehbg --bg-fill "$PIC"
-	# Wait for the specified interval
-	sleep "$INTERVAL"
+	# Pick a random wallpaper
+	img=$(find "$wallpaper_dir" -type f | shuf -n 1)
+
+	# Start new swaybg first (backgrounded), then kill old one after short delay
+	for output in $(swaymsg -t get_outputs | jq -r '.[].name'); do
+		swaybg -o "$output" -i "$img" -m fill &
+	done
+
+	# Give new swaybg processes a moment to start before killing old ones
+	sleep 1
+	pkill -o swaybg
+
+	# Wait 5 minutes
+	sleep 300
 done
