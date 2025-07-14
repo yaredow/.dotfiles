@@ -1,20 +1,23 @@
 #!/bin/bash
 
-# Define the wallpaper directory
+# Directory containing wallpapers
 wallpaper_dir="$HOME/Pictures/wallpaper"
 
-# Define transition settings
-transition_type="grow"  # You can change this to: fade, slide, shrink, etc.
-transition_duration="2" # Duration in seconds for the transition
+# Transition settings
+transition_type="fade"
+transition_duration=5
 
-# Cycle through wallpapers every 5 minutes (300 seconds)
+# Time between wallpaper changes (in seconds)
+interval=300
+
+# Main loop
 while true; do
-	# Pick a random wallpaper
 	img=$(find "$wallpaper_dir" -type f \( -iname '*.jpg' -o -iname '*.png' \) | shuf -n 1)
 
-	# Apply the wallpaper with transition
-	swww img "$img" --transition-type "$transition_type" --transition-duration "$transition_duration"
+	swww img "$img" \
+		--transition-type "$transition_type" \
+		--transition-duration "$transition_duration" \
+		--transition-fps 60
 
-	# Wait for 5 minutes before changing wallpaper
-	sleep 300
+	sleep "$interval"
 done
