@@ -66,7 +66,6 @@ bindsym $mod+x exec --no-startup-id powermenu_t2
 ### ────────────────────────────────────────
 
 bindsym $mod+Print exec ~/.config/rofi/applets/bin/screenshot.sh
-bindsym XF86PowerOff exec ~/.config/rofi/powermenu/type-1/powermenu.sh
 bindsym Mod1+e exec alacritty -e yazi
 bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+q kill
@@ -75,6 +74,7 @@ bindsym $mod+d exec $menu
 # Reload/exit sway
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+bindsym XF86PowerOff exec ~/.config/rofi/powermenu/type-1/powermenu.sh
 
 # Floating/dragging
 floating_modifier $mod normal
