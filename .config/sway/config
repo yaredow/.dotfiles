@@ -66,6 +66,7 @@ bindsym $mod+x exec --no-startup-id powermenu_t2
 ### ────────────────────────────────────────
 
 bindsym $mod+Print exec grim -g "$(slurp)" - | wl-copy --type image/png
+bindsym XF86PowerOff exec ~/.config/rofi/powermenu/type-1/powermenu.sh
 bindsym Mod1+e exec alacritty -e yazi
 bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+q kill
