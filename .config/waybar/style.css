@@ -148,11 +148,14 @@ tooltip label {
 }
 
 #workspaces button {
+    background: rgba(67,76,94,0.6); /* nord2 with some transparency */
+    color: #eceff4;
     border-radius: 5px;
     padding: 0px 6px;
     margin-right: 2px;
     margin-left: 2px;
 }
+
 
 #workspaces button.focused {
     border: 0.9px solid #eceff4;
