@@ -65,7 +65,7 @@ bindsym $mod+x exec --no-startup-id powermenu_t2
 ### > Keybindings: Basic
 ### ────────────────────────────────────────
 
-bindsym $mod+Print exec grim -g "$(slurp)" - | wl-copy --type image/png
+bindsym $mod+Print exec ~/.config/rofi/applets/bin/screenshot.sh
 bindsym XF86PowerOff exec ~/.config/rofi/powermenu/type-1/powermenu.sh
 bindsym Mod1+e exec alacritty -e yazi
 bindsym $mod+Return exec alacritty
@@ -214,11 +214,6 @@ for_window [class=".*"] border pixel 2
 gaps inner 3
 gaps outer 3
 smart_gaps on
-
-# Colors
-client.focused          #7aa2f7 #1a1b26 #ffffff #7aa2f7 #7aa2f7
-client.unfocused        #1a1b26 #1a1b26 #7aa2f7 #1a1b26 #1a1b26
-
 
 ### ────────────────────────────────────────
 ### > System Includes
