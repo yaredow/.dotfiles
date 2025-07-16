@@ -1,23 +1,32 @@
 #!/bin/bash
 
-# Directory containing wallpapers
-wallpaper_dir="$HOME/Pictures/wallpaper"
+IFS=$'\n'
+wallpaper_directory="/home/yada/Pictures/catppuccin"
+duration=300
 
-# Transition settings
-transition_type="fade"
-transition_duration=5
+[ -z "$wallpaper_directory" ] && echo "Usage: $(basename "$0") [DIRECTORY] [DURATION]" && exit 1
+[ ! -d "$wallpaper_directory" ] && echo "Directory '$wallpaper_directory' does not exist" && exit 1
+[ -z "$duration" ] && duration=60
 
-# Time between wallpaper changes (in seconds)
-interval=300
-
-# Main loop
+# Loop through wallpapers
 while true; do
-	img=$(find "$wallpaper_dir" -type f \( -iname '*.jpg' -o -iname '*.png' \) | shuf -n 1)
+	for file in "$wallpaper_directory"/*; do
+		[ ! -f "$file" ] && continue
 
-	swww img "$img" \
-		--transition-type "$transition_type" \
-		--transition-duration "$transition_duration" \
-		--transition-fps 60
-
-	sleep "$interval"
+		mime_type=$(file --mime-type -b "$file")
+		case "$mime_type" in
+		image/jpeg | image/png | image/webp)
+			echo "Setting wallpaper: $file"
+			swww img "$file" \
+				--transition-type fade \
+				--transition-fps 60 \
+				--transition-duration 1 \
+				--transition-pos "$(hyprctl cursorpos 2>/dev/null || echo "0,0")"
+			sleep "$duration"
+			;;
+		*)
+			echo "Skipping unsupported file: $file"
+			;;
+		esac
+	done
 done
