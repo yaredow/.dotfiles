@@ -53,6 +53,7 @@ input type:touchpad {
 
 # Status bar and wallpaper daemon
 exec waybar
+exec_always autotiling
 exec_always --no-startup-id swww-daemon
 exec_always ~/scripts/sway-wallpaper-loop
 
@@ -211,7 +212,6 @@ for_window [class=".*"] border pixel 2
 # Gaps
 gaps inner 3
 gaps outer 3
-smart_gaps on
 
 ### Swayfx effects
 corner_radius 14
@@ -222,17 +222,14 @@ blur_xray off
 blur_passes 3
 blur_radius 5
 
-
 # Opacity
-for_window [class=".*"] opacity set 0.8
-for_window [app_id="gimp*"] opacity set 1.0
+for_window [class=".*"] opacity set 0.85
 for_window [app_id="krita*"] opacity set 1.0
 for_window [app_id="org.inkscape.Inkscape"] opacity set 1.0
 for_window [app_id="virt-manager"] opacity set 1.0
 for_window [app_id="com.obsproject.Studio"] opacity set 1.0
 
 # Blur
-for_window [app_id="gimp*"] blur disable
 for_window [class="krita*"] blur disable
 for_window [app_id="org.inkscape.Inkscape"] blur disable
 for_window [app_id="virt-manager"] blur disable
@@ -247,5 +244,3 @@ exec_always swaymsg effects enable
 ### ────────────────────────────────────────
 ### > System Includes
 ### ────────────────────────────────────────
-
-include /etc/sway/config.d/*
