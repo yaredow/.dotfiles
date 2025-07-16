@@ -209,6 +209,13 @@ default_border pixel 2
 default_floating_border pixel 2
 for_window [class=".*"] border pixel 2
 
+
+# Client border colors (focused, unfocused, etc.)
+client.focused          #89b4fa #89b4fa #1e1e2e #89b4fa
+client.focused_inactive #313244 #313244 #1e1e2e #313244
+client.unfocused        #313244 #313244 #1e1e2e #313244
+client.urgent           #f38ba8 #f38ba8 #1e1e2e #f38ba8
+
 # Gaps
 gaps inner 3
 gaps outer 3
