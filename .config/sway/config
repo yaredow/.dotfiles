@@ -7,8 +7,9 @@
 ### > Variables
 ### ────────────────────────────────────────
 
+
 # Mod key (Mod4 = Super/Windows key)
-set $mod Mod4
+set $mod Mod1
 
 # Vim-like directional variables
 set $left h
@@ -17,7 +18,6 @@ set $up k
 set $right l
 
 # Applications
-set $term foot
 set $menu wmenu-run
 
 
@@ -57,7 +57,7 @@ exec_always --no-startup-id swww-daemon
 exec_always ~/scripts/sway-wallpaper-loop
 
 # Custom launcher and power menu
-bindsym Ctrl+Mod1+p exec --no-startup-id ~/.config/rofi/launchers/type-2/launcher.sh
+bindsym Ctrl+$mod+p exec --no-startup-id ~/.config/rofi/launchers/type-2/launcher.sh
 bindsym $mod+x exec --no-startup-id powermenu_t2
 
 
@@ -65,10 +65,9 @@ bindsym $mod+x exec --no-startup-id powermenu_t2
 ### > Keybindings: Basic
 ### ────────────────────────────────────────
 
-bindsym $mod+Print exec ~/.config/rofi/applets/bin/screenshot.sh
-bindsym Mod1+e exec alacritty -e yazi
+bindsym $mod+e exec alacritty -e yazi
 bindsym $mod+Return exec alacritty
-bindsym $mod+Shift+q kill
+bindsym $mod+Ctrl+q kill
 bindsym $mod+d exec $menu
 
 # Reload/exit sway
@@ -110,8 +109,8 @@ bindsym $mod+Shift+Right move right
 ### ────────────────────────────────────────
 
 # Switch between workspaces
-bindsym Ctrl+Mod1+j workspace next
-bindsym Ctrl+Mod1+k workspace prev
+bindsym Ctrl+$mod+j workspace next
+bindsym Ctrl+$mod+k workspace prev
 
 # Switch to workspace
 bindsym $mod+1 workspace number 1
@@ -146,7 +145,7 @@ bindsym $mod+b splith
 bindsym $mod+v splitv
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+q layout toggle split
 bindsym $mod+f fullscreen
 bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
@@ -198,8 +197,7 @@ bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
 
 # Screenshot
-bindsym Print exec grim
-
+bindsym $mod+Shift+s exec ~/.config/rofi/applets/bin/screenshot.sh
 
 ### ────────────────────────────────────────
 ### > Appearance (Borders, Gaps, Colors)
@@ -214,6 +212,37 @@ for_window [class=".*"] border pixel 2
 gaps inner 3
 gaps outer 3
 smart_gaps on
+
+### Swayfx effects
+corner_radius 14
+
+# Window background blur
+blur on
+blur_xray off
+blur_passes 3
+blur_radius 5
+
+
+# Opacity
+for_window [class=".*"] opacity set 0.8
+for_window [app_id="gimp*"] opacity set 1.0
+for_window [app_id="krita*"] opacity set 1.0
+for_window [app_id="org.inkscape.Inkscape"] opacity set 1.0
+for_window [app_id="virt-manager"] opacity set 1.0
+for_window [app_id="com.obsproject.Studio"] opacity set 1.0
+
+# Blur
+for_window [app_id="gimp*"] blur disable
+for_window [class="krita*"] blur disable
+for_window [app_id="org.inkscape.Inkscape"] blur disable
+for_window [app_id="virt-manager"] blur disable
+for_window [app_id="com.obsproject.Studio"] blur disable
+
+
+### Enable effects on startup
+exec_always swaymsg effects enable
+
+
 
 ### ────────────────────────────────────────
 ### > System Includes
