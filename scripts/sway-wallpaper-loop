@@ -1,32 +1,44 @@
 #!/bin/bash
 
-IFS=$'\n'
-wallpaper_directory="/home/yada/Pictures/catppuccin"
-duration=300
+# Prevent multiple instances
+pid_file="/tmp/wallpaper_script.pid"
+if [ -f "$pid_file" ]; then
+	echo "Script is already running. Exiting."
+	exit 1
+fi
+echo $$ >"$pid_file"
+trap 'rm -f "$pid_file"' EXIT
 
-[ -z "$wallpaper_directory" ] && echo "Usage: $(basename "$0") [DIRECTORY] [DURATION]" && exit 1
+# Configuration
+wallpaper_directory="/home/yada/Pictures/catppuccin"
+duration=300 # 5 minutes in seconds
+
+# Validate inputs
 [ ! -d "$wallpaper_directory" ] && echo "Directory '$wallpaper_directory' does not exist" && exit 1
-[ -z "$duration" ] && duration=60
+[ -z "$duration" ] && duration=300
+
+# Initialize swww if not already running
+if ! pgrep -x "swww" >/dev/null; then
+	swww init
+fi
 
 # Loop through wallpapers
 while true; do
-	for file in "$wallpaper_directory"/*; do
-		[ ! -f "$file" ] && continue
+	# Use find to get only image files
+	mapfile -t files < <(find "$wallpaper_directory" -maxdepth 1 -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.webp" \))
+	if [ ${#files[@]} -eq 0 ]; then
+		echo "No valid image files found in '$wallpaper_directory'"
+		exit 1
+	fi
 
-		mime_type=$(file --mime-type -b "$file")
-		case "$mime_type" in
-		image/jpeg | image/png | image/webp)
-			echo "Setting wallpaper: $file"
-			swww img "$file" \
-				--transition-type fade \
-				--transition-fps 60 \
-				--transition-duration 1 \
-				--transition-pos "$(hyprctl cursorpos 2>/dev/null || echo "0,0")"
-			sleep "$duration"
-			;;
-		*)
-			echo "Skipping unsupported file: $file"
-			;;
-		esac
+	for file in "${files[@]}"; do
+		echo "Setting wallpaper: $file"
+		swww img "$file" \
+			--transition-type fade \
+			--transition-fps 60 \
+			--transition-duration 1 \
+			--transition-pos "$(hyprctl cursorpos 2>/dev/null || echo "0,0")"
+		echo "Sleeping for $duration seconds..."
+		sleep "$duration"
 	done
 done
