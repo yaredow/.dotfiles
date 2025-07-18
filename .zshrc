@@ -16,6 +16,10 @@ plugins=(
   git
   zsh-syntax-highlighting
   zsh-autosuggestions
+  sudo
+  web-search
+  copydir
+  cppyfile
 )
 
 # Load Oh My Zsh.
@@ -44,7 +48,7 @@ alias gs="git status"   # Short git status.
 alias gc="git commit"   # Git commit shortcut.
 alias gp="git push"     # Git push shortcut.
 alias v=nvim
-alias y=yazi
+alias st=speedtest
 alias nr="npm run"
 alias nrd="npm run dev"
 alias brd="bun run dev"
@@ -86,6 +90,8 @@ setopt hist_ignore_space      # Ignore commands with leading space.
 # Export common environment variables.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export EDITOR="nvim"
+export GDK_SCALE=2
+export GDK_DPI_SCALE=0.5
 
 # Fix issues with Oh My Zsh loading order for plugins.
 zmodload zsh/complist
@@ -99,3 +105,12 @@ zmodload zsh/complist
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
