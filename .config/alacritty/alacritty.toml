@@ -6,14 +6,14 @@ general.import = [
 TERM = "xterm-256color"
 
 [window]
-padding.x = 10
-padding.y = 10
+padding.x = 5
+padding.y = 5
 opacity = 1
 
 decorations = "None"
 
 [font]
-normal.family = "Iosevka Nerd Font"
+normal.family = "JetBrainsMono Nerd Font"
 
 #regular
 size = 11.5
