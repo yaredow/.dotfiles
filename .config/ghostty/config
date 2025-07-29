@@ -1,0 +1,5 @@
+theme = tokyonight
+font-family = Fira Code
+font-size = 11.5
+fullscreen = false
+gtk-titlebar = false
