@@ -15,6 +15,14 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
+
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = { "*.js", "*.jsx" },
+  callback = function()
+    vim.bo.filetype = "javascriptreact"
+  end,
+})
+
 -- validate that lazy is available
 if not pcall(require, "lazy") then
   -- stylua: ignore
