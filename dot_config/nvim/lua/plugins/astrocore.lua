@@ -1,5 +1,3 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
-
 -- AstroCore provides a central place to modify mappings, vim options, autocommands, and more!
 -- Configuration documentation can be found with `:h astrocore`
 -- NOTE: We highly recommend setting up the Lua Language Server (`:LspInstall lua_ls`)
@@ -54,31 +52,29 @@ return {
     },
     -- Mappings can be configured through AstroCore as well.
     -- NOTE: keycodes follow the casing in the vimdocs. For example, `<Leader>` must be capitalized
-    mappings = {
-      -- first key is the mode
-      n = {
-        -- second key is the lefthand side of the map
 
-        -- navigate buffer tabs
+    mappings = {
+      n = {
+        -- existing mappings...
         ["]b"] = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
         ["[b"] = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
 
-        -- mappings seen under group name "Buffer"
-        ["<Leader>bd"] = {
-          function()
-            require("astroui.status.heirline").buffer_picker(
-              function(bufnr) require("astrocore.buffer").close(bufnr) end
-            )
-          end,
-          desc = "Close buffer from tabline",
-        },
-
-        -- tables with just a `desc` key will be registered with which-key if it's installed
-        -- this is useful for naming menus
-        -- ["<Leader>b"] = { desc = "Buffers" },
-
-        -- setting a mapping to false will disable it
-        -- ["<C-S>"] = false,
+        -- your custom mappings
+        ["<leader>nh"] = { ":nohl<CR>", desc = "Clear search highlights" },
+        ["<leader>+"] = { "<C-a>", desc = "Increment number" },
+        ["<leader>-"] = { "<C-x>", desc = "Decrement number" },
+        ["<leader>sv"] = { "<C-w>v", desc = "Split window vertically" },
+        ["<leader>sh"] = { "<C-w>s", desc = "Split window horizontally" },
+        ["<leader>se"] = { "<C-w>=", desc = "Make splits equal size" },
+        ["<leader>sx"] = { "<cmd>close<CR>", desc = "Close current split" },
+        ["<leader>to"] = { "<cmd>tabnew<CR>", desc = "Open new tab" },
+        ["<leader>tx"] = { "<cmd>tabclose<CR>", desc = "Close current tab" },
+        ["<leader>tn"] = { "<cmd>tabn<CR>", desc = "Go to next tab" },
+        ["<leader>tp"] = { "<cmd>tabp<CR>", desc = "Go to previous tab" },
+        ["<leader>tf"] = { "<cmd>tabnew %<CR>", desc = "Open current buffer in new tab" },
+      },
+      i = {
+        ["jk"] = { "<ESC>", desc = "Exit insert mode with jk" },
       },
     },
   },
