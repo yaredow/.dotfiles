@@ -1,5 +1,3 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
-
 -- AstroCore provides a central place to modify mappings, vim options, autocommands, and more!
 -- Configuration documentation can be found with `:h astrocore`
 -- NOTE: We highly recommend setting up the Lua Language Server (`:LspInstall lua_ls`)
@@ -47,23 +45,43 @@ return {
         wrap = false, -- sets vim.opt.wrap
       },
       g = { -- vim.g.<key>
-        -- configure global vim variables (vim.g)
-        -- NOTE: `mapleader` and `maplocalleader` must be set in the AstroNvim opts or before `lazy.setup`
-        -- This can be found in the `lua/lazy_setup.lua` file
+        mapleader = " ", -- Set leader key to space
       },
     },
     -- Mappings can be configured through AstroCore as well.
     -- NOTE: keycodes follow the casing in the vimdocs. For example, `<Leader>` must be capitalized
     mappings = {
       -- first key is the mode
+      i = {
+        -- exit insert mode with "jk"
+        ["jk"] = { "<ESC>", desc = "Exit insert mode with jk" },
+      },
       n = {
-        -- second key is the lefthand side of the map
+        -- Clear search highlights
+        ["<Leader>nh"] = { ":nohl<CR>", desc = "Clear search highlights" },
+
+        -- increment/decrement numbers
+        ["<Leader>+"] = { "<C-a>", desc = "Increment number" }, -- increment
+        ["<Leader>-"] = { "<C-x>", desc = "Decrement number" }, -- decrement
+
+        -- window management
+        ["<Leader>sv"] = { "<C-w>v", desc = "Split window vertically" }, -- split window vertically
+        ["<Leader>sh"] = { "<C-w>s", desc = "Split window horizontally" }, -- split window horizontally
+        ["<Leader>se"] = { "<C-w>=", desc = "Make splits equal size" }, -- make split windows equal width & height
+        ["<Leader>sx"] = { "<cmd>close<CR>", desc = "Close current split" }, -- close current split window
+
+        -- tab management
+        ["<Leader>to"] = { "<cmd>tabnew<CR>", desc = "Open new tab" }, -- open new tab
+        ["<Leader>tx"] = { "<cmd>tabclose<CR>", desc = "Close current tab" }, -- close current tab
+        ["<Leader>tn"] = { "<cmd>tabn<CR>", desc = "Go to next tab" }, -- go to next tab
+        ["<Leader>tp"] = { "<cmd>tabp<CR>", desc = "Go to previous tab" }, -- go to previous tab
+        ["<Leader>tf"] = { "<cmd>tabnew %<CR>", desc = "Open current buffer in new tab" }, -- move current buffer to new tab
 
         -- navigate buffer tabs
         ["]b"] = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
         ["[b"] = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
 
-        -- mappings seen under group name "Buffer"
+        -- close buffer from tabline
         ["<Leader>bd"] = {
           function()
             require("astroui.status.heirline").buffer_picker(
@@ -72,13 +90,6 @@ return {
           end,
           desc = "Close buffer from tabline",
         },
-
-        -- tables with just a `desc` key will be registered with which-key if it's installed
-        -- this is useful for naming menus
-        -- ["<Leader>b"] = { desc = "Buffers" },
-
-        -- setting a mapping to false will disable it
-        -- ["<C-S>"] = false,
       },
     },
   },
