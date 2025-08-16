@@ -43,6 +43,15 @@ return {
           max_tokens = 32768,
         },
       },
+      gemini = {
+        endpoint = "https://api.gemini.ai/v1",
+        model = "gemini-alpha-2025",
+        timeout = 30000, -- Timeout in milliseconds
+        extra_request_body = {
+          temperature = 0.7,
+          max_tokens = 15000,
+        },
+      },
     },
   },
   dependencies = {
@@ -84,3 +93,4 @@ return {
     },
   },
 }
+
