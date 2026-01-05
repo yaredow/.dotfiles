@@ -48,6 +48,8 @@ alias gp="git push"     # Git push shortcut.
 alias v=nvim
 alias st=speedtest
 alias sp=sudo pacman
+alias prd="pnpm run dev"
+alias prb="pnpm run build"
 alias nr="npm run"
 alias nrd="npm run dev"
 alias brd="bun run dev"
@@ -55,7 +57,7 @@ alias nrpg="npm run prisma:generate"
 alias nrpp="npm run prisma:push"
 alias nrps="npm run prisma:studio"
 alias c=clear
-alias ccwd="cd Documents/code"
+alias ccwd="cd ~/Documents/code"
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias emp="ecryptfs-mount-private"
 alias eup="ecryptfs-umount-private"
@@ -117,3 +119,14 @@ function y() {
 }
 
 eval "$(zoxide init zsh)"
+
+# opencode
+export PATH=/home/yada/.opencode/bin:$PATH
+
+# pnpm
+export PNPM_HOME="/home/yada/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
