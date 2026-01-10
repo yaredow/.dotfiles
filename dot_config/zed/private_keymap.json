@@ -87,7 +87,10 @@
       "space g g": "git_panel::ToggleFocus",
       "space a a": "agent::ToggleFocus",
       "space e": "workspace::ToggleRightDock",
-      "space o": "project_panel::ToggleFocus"
+      "space o": "project_panel::ToggleFocus",
+      "space q l": "workspace::ToggleLeftDock",
+      "space f f": "file_finder::Toggle",
+      "space space": "file_finder::Toggle"
     }
   },
   // Main keybindings (Space as leader)
