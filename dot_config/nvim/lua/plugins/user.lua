@@ -62,13 +62,11 @@ return {
     },
   },
 
-  -- Enable better-escape for jk escape
-  {
-    "max397574/better-escape.nvim",
-    opts = {
-      mapping = { "jk" },
-    },
-  },
+   -- Enable better-escape for jk escape
+   {
+     "max397574/better-escape.nvim",
+     opts = {},
+   },
 
   -- You can also easily customize additional setup of plugins that is outside of the plugin's setup call
   {
@@ -111,5 +109,13 @@ return {
     end,
   },
 
-  
+
+  -- Override toggleterm to enable terminal mappings for toggling inside terminal
+  {
+    "akinsho/toggleterm.nvim",
+    opts = {
+      size = 25, -- Default height for horizontal terminals
+      terminal_mappings = true, -- Enable mappings in terminal mode
+    },
+  },
 }

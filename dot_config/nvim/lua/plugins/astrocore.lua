@@ -1,4 +1,4 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+
 
 -- AstroCore provides a central place to modify mappings, vim options, autocommands, and more!
 -- Configuration documentation can be found with `:h astrocore`
@@ -54,9 +54,21 @@ return {
     },
     -- Mappings can be configured through AstroCore as well.
     -- NOTE: keycodes follow the casing in the vimdocs. For example, `<Leader>` must be capitalized
-    mappings = {
-      -- first key is the mode
-      n = {
+     mappings = {
+       -- first key is the mode
+       t = {
+         -- Terminal mappings for toggling even inside terminal
+         ["<Leader>tf"] = { "<Cmd>ToggleTerm direction=float<CR>", desc = "ToggleTerm float" },
+          ["<Leader>th"] = { "<Cmd>ToggleTerm direction=horizontal size=25<CR>", desc = "ToggleTerm horizontal" },
+         ["<Leader>tv"] = { "<Cmd>ToggleTerm direction=vertical<CR>", desc = "ToggleTerm vertical" },
+         ["<Leader>tl"] = { "<Cmd>lua require('toggleterm.terminal').Terminal:new({ cmd = 'lazygit', direction = 'float' }):toggle()<CR>", desc = "ToggleTerm lazygit" },
+         ["<Leader>tn"] = { "<Cmd>ToggleTerm cmd=node direction=float<CR>", desc = "ToggleTerm node" },
+         ["<Leader>tp"] = { "<Cmd>ToggleTerm cmd=python direction=float<CR>", desc = "ToggleTerm python" },
+         ["<Leader>tt"] = { "<Cmd>ToggleTerm cmd=btm direction=float<CR>", desc = "ToggleTerm btm" },
+         ["<F7>"] = { "<Cmd>ToggleTerm<CR>", desc = "ToggleTerm" },
+         ["<C-'>"] = { "<Cmd>ToggleTerm<CR>", desc = "ToggleTerm" },
+       },
+       n = {
         -- second key is the lefthand side of the map
 
         -- navigate buffer tabs
