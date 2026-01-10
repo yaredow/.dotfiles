@@ -37,7 +37,7 @@
 		},
 		"enabled_in_text_threads": false
 	},
-	"icon_theme": "Material Icon Theme",
+	"icon_theme": "VSCode Icons for Zed (Dark NestJS)",
 	"notification_panel": {
 		"button": false
 	},
@@ -65,7 +65,12 @@
       "name": "ruff"
      }
     }
-   ]
+    ]
+		}
+		,
+		"JSON": {
+			"formatter": "language_server",
+			"format_on_save": "on"
 		}
 	},
 	"lsp": {
@@ -166,7 +171,7 @@
 		"metrics": false
 	},
 	"vim_mode": true,
-	"relative_line_numbers": true,
+	"relative_line_numbers": "enabled",
 	"scrollbar": {
 		"show": "never"
 	},
@@ -259,26 +264,22 @@
 		"dock": "left",
 		"button": false
 	},
-	"chat_panel": {
-		"dock": "right"
-	},
-	"ui_font_size": 16,
-	"buffer_font_size": 16,
-	"buffer_font_family": "JetBrains Mono",
-	"ui_font_family": "BlexMono Nerd Font Mono",
+	"ui_font_size": 15.0,
+	"buffer_font_size": 14.0,
+	"buffer_font_family": "FiraCode Nerd Font Mono",
+	"ui_font_family": "FiraCode Nerd Font Mono",
 	"autosave": "on_focus_change",
 	"theme": {
-		"mode": "dark",
-		"light": "One Light",
-		"dark": "Tokyo Night"
-	},
+  "mode": "dark",
+  "light": "One Light",
+  "dark": "Tokyo Night"
+ },
 	"search": {
 		"whole_word": false,
 		"case_sensitive": true,
 		"include_ignored": false,
 		"regex": false
 	},
-	"projects_online_by_default": false,
 	"preferred_line_length": 120,
 	"features": {
 		"edit_prediction_provider": "zed"
