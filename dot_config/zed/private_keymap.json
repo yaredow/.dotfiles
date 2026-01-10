@@ -25,21 +25,6 @@
       "space t k": "pane::ActivatePreviousItem"
     }
   },
-  // Git panel
-  {
-    "context": "GitPanel",
-    "bindings": {
-      "q": "git_panel::Close"
-    }
-  },
-  // Agent panel
-  {
-    "context": "AgentPanel",
-    "bindings": {
-      "ctrl-\\": "workspace::ToggleRightDock",
-      "cmd-k": "workspace::ToggleRightDock"
-    }
-  },
   // Vim mode
   {
     "context": "vim_mode == insert",
