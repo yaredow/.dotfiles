@@ -3,8 +3,8 @@
   {
     "context": "Workspace",
     "bindings": {
-      "ctrl-/": "workspace::ToggleBottomDock"
-    }
+      "ctrl-/": "workspace::ToggleBottomDock",
+    },
   },
   // Window navigation
   {
@@ -12,25 +12,25 @@
       "ctrl-h": "workspace::ActivatePaneLeft",
       "ctrl-l": "workspace::ActivatePaneRight",
       "ctrl-k": "workspace::ActivatePaneUp",
-      "ctrl-j": "workspace::ActivatePaneDown"
-    }
+      "ctrl-j": "workspace::ActivatePaneDown",
+    },
   },
   // Terminal
   {
     "context": "Terminal",
     "bindings": {
       "space t n": "workspace::NewTerminal",
-      "space t h": "pane::CloseActiveItem",
+      "space t h": "workspace::ToggleBottomDock",
       "space t j": "pane::ActivateNextItem",
-      "space t k": "pane::ActivatePreviousItem"
-    }
+      "space t k": "pane::ActivatePreviousItem",
+    },
   },
   // Vim mode
   {
     "context": "vim_mode == insert",
     "bindings": {
-      "j k": "vim::NormalBefore"
-    }
+      "j k": "vim::NormalBefore",
+    },
   },
   // Project panel (file tree)
   {
@@ -62,8 +62,8 @@
       "shift-g": "menu::SelectLast",
       "g g": "menu::SelectFirst",
       "-": "project_panel::SelectParent",
-      "ctrl-6": "pane::AlternateFile"
-    }
+      "ctrl-6": "pane::AlternateFile",
+    },
   },
   // Empty pane
   {
@@ -75,8 +75,8 @@
       "space o": "project_panel::ToggleFocus",
       "space q l": "workspace::ToggleLeftDock",
       "space f f": "file_finder::Toggle",
-      "space space": "file_finder::Toggle"
-    }
+      "space space": "file_finder::Toggle",
+    },
   },
   // Main keybindings (Space as leader)
   {
@@ -149,16 +149,16 @@
       "] e": "editor::GoToDiagnostic",
       "[ e": "editor::GoToPreviousDiagnostic",
       "] q": "editor::MoveToStartOfNextExcerpt",
-      "[ q": "editor::MoveToStartOfExcerpt"
-    }
+      "[ q": "editor::MoveToStartOfExcerpt",
+    },
   },
   // Visual mode
   {
     "context": "Editor && vim_mode == visual && !VimWaiting && !VimObject",
     "bindings": {
       "shift-j": "editor::MoveLineDown",
-      "shift-k": "editor::MoveLineUp"
-    }
+      "shift-k": "editor::MoveLineUp",
+    },
   },
   // Vim control
   {
@@ -169,35 +169,35 @@
       "n": ["workspace::SendKeystrokes", "n z z z v"],
       "shift-n": ["workspace::SendKeystrokes", "shift-n z z z v"],
       "shift-g": ["workspace::SendKeystrokes", "shift-g z z"],
-      "g r": "editor::FindAllReferences"
-    }
+      "g r": "editor::FindAllReferences",
+    },
   },
   // Vim operators
   {
     "context": "vim_operator == d",
     "bindings": {
       "o": "editor::ExpandAllDiffHunks",
-      "r": "git::Restore"
-    }
+      "r": "git::Restore",
+    },
   },
   {
     "context": "vim_mode == normal || vim_mode == visual",
     "bindings": {
       "s": "vim::PushSneak",
-      "S": "vim::PushSneakBackward"
-    }
+      "S": "vim::PushSneakBackward",
+    },
   },
   {
     "context": "vim_operator == a || vim_operator == i || vim_operator == cs",
     "bindings": {
-      "b": "vim::AnyBrackets"
-    }
+      "b": "vim::AnyBrackets",
+    },
   },
   // Global bindings
   {
     "bindings": {
-      "ctrl-i": "agents::ToggleAgentsPanel"
-    }
+      "ctrl-i": "agents::ToggleAgentsPanel",
+    },
   },
   // Code actions and completions
   {
@@ -210,8 +210,8 @@
       "pageup": "editor::ContextMenuFirst",
       "pagedown": "editor::ContextMenuLast",
       "j": "editor::ContextMenuNext",
-      "k": "editor::ContextMenuPrevious"
-    }
+      "k": "editor::ContextMenuPrevious",
+    },
   },
   // Menu navigation
   {
@@ -220,21 +220,21 @@
       "ctrl-j": "menu::SelectNext",
       "ctrl-k": "menu::SelectPrevious",
       "j": "menu::SelectNext",
-      "k": "menu::SelectPrevious"
-    }
+      "k": "menu::SelectPrevious",
+    },
   },
   {
     "bindings": {
       "ctrl-j": "menu::SelectNext",
-      "ctrl-k": "menu::SelectPrevious"
-    }
+      "ctrl-k": "menu::SelectPrevious",
+    },
   },
   {
     "context": "Editor",
     "bindings": {
       "ctrl-j": "editor::ContextMenuNext",
-      "ctrl-k": "editor::ContextMenuPrevious"
-    }
+      "ctrl-k": "editor::ContextMenuPrevious",
+    },
   },
   // Picker
   {
@@ -242,13 +242,13 @@
     "bindings": {
       "ctrl-j": "menu::SelectNext",
       "ctrl-k": "menu::SelectPrevious",
-      "space q": "menu::Cancel"
-    }
+      "space q": "menu::Cancel",
+    },
   },
   {
     "context": "Picker > Editor && VimControl",
     "bindings": {
-      "q": "menu::Cancel"
-    }
-  }
+      "q": "menu::Cancel",
+    },
+  },
 ]
