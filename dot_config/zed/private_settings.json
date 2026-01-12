@@ -226,6 +226,7 @@
     "scrollbar": {
       "show": "never",
     },
+    "auto_fold_dirs": false,
   },
   "outline_panel": {
     "dock": "right",

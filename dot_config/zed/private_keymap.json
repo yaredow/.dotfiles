@@ -76,6 +76,7 @@
       "space q l": "workspace::ToggleLeftDock",
       "space f f": "file_finder::Toggle",
       "space space": "file_finder::Toggle",
+      "space t h": "workspace::ToggleBottomDock",
     },
   },
   // Main keybindings (Space as leader)
