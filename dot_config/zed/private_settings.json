@@ -37,7 +37,7 @@
     },
     "enabled_in_text_threads": false,
   },
-  "icon_theme": "VSCode Icons for Zed (Dark NestJS)",
+  "icon_theme": "Material Icon Theme",
   "notification_panel": {
     "button": false,
   },
@@ -186,15 +186,11 @@
     "env": {
       "EDITOR": "zed --wait",
     },
-    "font_size": 16,
-    "font_family": "BlexMono Nerd Font Mono",
+    "font_size": 14,
+    "font_family": "FiraCode Nerd Font Mono",
     "detect_venv": {
       "on": {
-        // Default directories to search for virtual environments, relative
-        // to the current working directory. We recommend overriding this
-        // in your project's settings, rather than globally.
         "directories": [".venv", "venv"],
-        // Can also be `csh`, `fish`, and `nushell`
         "activate_script": "default",
       },
     },
@@ -204,7 +200,7 @@
     "title": false,
     "quick_actions": false,
   },
-  // NOTE: Zen mode, refer https://github.com/zed-industries/zed/issues/4382 when it's resolved
+  // Nt panel in the setting under ~/.config/zedOTE: Zen mode, refer https://github.com/zed-industries/zed/issues/4382 when it's resolved
   "centered_layout": {
     "left_padding": 0.15,
     "right_padding": 0.15,
@@ -246,4 +242,5 @@
     "dark": "Tokyo Night",
   },
   "format_on_save": "on",
+  "agent_ui_font_size": 15,
 }

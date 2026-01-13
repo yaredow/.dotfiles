@@ -1,9 +1,10 @@
 [
   // Workspace
   {
-    "context": "Workspace",
+    "context": "Workspace && vim_mode == normal",
     "bindings": {
       "ctrl-/": "workspace::ToggleBottomDock",
+      "space f e": ["pane::ActivateItem", 0],
     },
   },
   // Window navigation
