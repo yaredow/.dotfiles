@@ -244,13 +244,13 @@
     "bindings": {
       "ctrl-j": "menu::SelectNext",
       "ctrl-k": "menu::SelectPrevious",
-      "space q": "menu::Cancel",
+      "j k": "vim::NormalBefore",
     },
   },
   {
-    "context": "Picker > Editor && VimControl",
+    "context": "Picker > Editor",
     "bindings": {
-      "q": "menu::Cancel",
+      "ctrl-l": "menu::Cancel",
     },
   },
 ]
