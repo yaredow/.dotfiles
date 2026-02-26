@@ -7,6 +7,23 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "context_servers": {
+    "hugeicons": {
+      "enabled": true,
+      "remote": false,
+      "command": "npx",
+      "args": [
+        "-y",
+        "@hugeicons/mcp-server"
+      ]
+    }
+  },
+  "agent_servers": {
+    "github-copilot": {
+      "type": "registry"
+    }
+  },
+  "agent_buffer_font_size": 13.0,
   "edit_predictions": {
     "disabled_globs": [
       "**/.git",
@@ -42,11 +59,12 @@
     "button": false,
   },
   "agent": {
+    "always_allow_tool_actions": true,
     "dock": "left",
-    "default_profile": "ask",
+    "default_profile": "write",
     "default_model": {
-      "provider": "zed.dev",
-      "model": "claude-3-7-sonnet-latest",
+      "provider": "google",
+      "model": "gemini-2.5-flash",
     },
   },
   "languages": {
@@ -197,7 +215,6 @@
     "button": false,
   },
   "toolbar": {
-    "title": false,
     "quick_actions": false,
   },
   // Nt panel in the setting under ~/.config/zedOTE: Zen mode, refer https://github.com/zed-industries/zed/issues/4382 when it's resolved
@@ -232,8 +249,8 @@
     "dock": "left",
     "button": false,
   },
-  "ui_font_size": 15.0,
-  "buffer_font_size": 14.0,
+  "ui_font_size": 14.0,
+  "buffer_font_size": 13.0,
   "buffer_font_family": "FiraCode Nerd Font Mono",
   "ui_font_family": "FiraCode Nerd Font Mono",
   "theme": {
@@ -242,5 +259,5 @@
     "dark": "Tokyo Night",
   },
   "format_on_save": "on",
-  "agent_ui_font_size": 15,
+  "agent_ui_font_size": 13.5,
 }

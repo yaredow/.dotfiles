@@ -197,12 +197,6 @@
   },
   // Global bindings
   {
-    "bindings": {
-      "ctrl-i": "agents::ToggleAgentsPanel",
-    },
-  },
-  // Code actions and completions
-  {
     "context": "Editor && vim_mode == normal && (showing_code_actions || showing_completions)",
     "bindings": {
       "up": "editor::ContextMenuPrevious",
@@ -217,7 +211,7 @@
   },
   // Menu navigation
   {
-    "context": "menu",
+    "context": "menu && not_editing",
     "bindings": {
       "ctrl-j": "menu::SelectNext",
       "ctrl-k": "menu::SelectPrevious",
