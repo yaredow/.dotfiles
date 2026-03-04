@@ -59,12 +59,15 @@
     "button": false,
   },
   "agent": {
-    "always_allow_tool_actions": true,
+    "tool_permissions": {
+      "default": "allow"
+    },
     "dock": "left",
-    "default_profile": "write",
+    "default_profile": "ask",
     "default_model": {
-      "provider": "google",
-      "model": "gemini-2.5-flash",
+      "enable_thinking": true,
+      "provider": "openrouter",
+      "model": "google/gemini-2.5-flash",
     },
   },
   "languages": {
